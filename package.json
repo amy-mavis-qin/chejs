@@ -7,5 +7,11 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Amy Qin",
-  "license": "ISC"
+  "license": "ISC",
+  "keywords": [
+    "chemical",
+    "chemistry",
+    "chemical engineering",
+    "physical chemistry"
+  ]
 }
