@@ -47,15 +47,13 @@ function unitConvert(input,outputUnit){
                 }
             };
         };
-    } catch (e) {
-        if(e instanceof TypeError){
-            alert("Invalid Input")
-        }
+    } catch (err) {
+        throw new Error(err);
     }
 };
 
 function tempConvert(input,outputUnit){
-    input = input.replace(/\s/g,"");
+    input = input.trim();
     outputUnit = outputUnit.toLowerCase();
     var inputValue, inputUnit, convertedValue;
     if(typeof input === "string"){
@@ -89,9 +87,9 @@ function antoineCalculations(molecule, input) {
         b = molecule[1];
         c = molecule[2];
     }
-    input = func.variableInput(input)
+    input = variableInput(input)
     if(input.pressure && input.pressure[1] !== 'mmhg') {
-        Pvap = func.unitConvert(input.pressure[0]+input.pressure[1],"mmhg");
+        Pvap = unitConvert(input.pressure[0]+input.pressure[1],"mmhg");
         T = b /( a - Math.log10(Pvap)) - c;
         if(Pvap === Math.round(Math.pow(10, (a - (b / (T + c)))))){
             return([T, 'c']);
@@ -105,7 +103,7 @@ function antoineCalculations(molecule, input) {
         }
     };
     if (input.temperature && input.temperature[1] !== 'c') {
-        T = func.tempConvert(input.temperature, 'c');
+        T = tempConvert(input.temperature, 'c');
         Pvap = Math.pow(10, (a - (b / (T + c))));
         if(T === Math.round(b /( a - Math.log10(Pvap)) - c)){
             return([Pvap, 'mmhg']);
