@@ -1,6 +1,6 @@
 {
   "name": "chejs",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Chemical engineering scripts",
   "main": "index.js",
   "scripts": {
