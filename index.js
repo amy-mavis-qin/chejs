@@ -1,6 +1,5 @@
-module.exports = require('./src/general-chemistry/functions.js');
-module.exports = require('./src/physical-chemistry/functions.js');
-
-module.exports = require('./src/definitions/antoine_constants.js');
-module.exports = require('./src/definitions/element_mass_properties.js');
-module.exports = require('./src/definitions/units.js');
+export { default as antoine_constants } from "./src/definitions/antoine_constants.js";
+export { default as element_mass_properties } from "./src/definitions/element_mass_properties.js";
+export { default as units } from "./src/definitions/units.js";
+export { default as functions } from "./src/general-chemistry/functions.js";
+export { default as functions } from "./src/physical-chemistry/functions.js";
