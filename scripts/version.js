@@ -7,7 +7,7 @@ const arg = process.argv[2];
 function update(version) {
     fs.readFile('./package.json', 'utf-8', function(err, data) {
         if (err) {
-            throw err;
+            console.log(error);
         }
 
         let semver = JSON.parse(data).version;
@@ -27,17 +27,17 @@ function update(version) {
 
         const options = {
             files: './package.json',
-            from: /[0-9]\.[0-9]\.[0-9]/,
-            to: `${newSemver}`,
+            from: /"version": \"[0-9]\.[0-9]\.[0-9]\"/,
+            to: `"version": "${newSemver}"`,
           };
 
           try {
-            const results = replace.sync(options)
+            const results = replace.sync(options);
             console.log(results);
             console.log(`Updated to version ${newSemver}`);
           }
           catch (error) {
-              throw err;
+              console.log(error);
           }          
     })
 }

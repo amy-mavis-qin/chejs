@@ -1,6 +1,6 @@
 {
   "name": "chejs",
-  "version": "1.0.7",
+  "version": "1.2.9",
   "description": "Chemical engineering scripts",
   "main": "index.js",
   "scripts": {
@@ -16,7 +16,7 @@
     "physical chemistry"
   ],
   "dependencies": {
-    "fs": "newSemver.NaN-security",
+    "fs": "0.0.1-security",
     "path": "^0.12.7",
     "replace-in-file": "^6.2.0"
   },
