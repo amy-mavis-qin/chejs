@@ -1,10 +1,10 @@
 const fs = require('fs');
 const replace = require('replace-in-file');
 
-const arg = process.argv[2];
+const opt = process.argv[2];
 
 // Modify version number
-function update(version) {
+function updateVersion(version) {
     fs.readFile('./package.json', 'utf-8', function(err, data) {
         if (err) {
             console.log(error);
@@ -42,4 +42,4 @@ function update(version) {
     })
 }
 
-update(arg);
+updateVersion(opt);
