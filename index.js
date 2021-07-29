@@ -3,3 +3,6 @@ export { default as element_mass_properties } from "./src/definitions/element_ma
 export { default as units } from "./src/definitions/units.js";
 export { default as molarMass } from "./src/general-chemistry/molarMass.js";
 export { default as functions } from "./src/physical-chemistry/unitConvert.js";
+export { default as antoineCalculations } from "./src/physical-chemistry/antoineCalculations.js";
+export { default as tempConvert } from "./src/physical-chemistry/tempConvert.js";
+export { default as util } from "./src/physical-chemistry/util.js";
