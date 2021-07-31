@@ -15,8 +15,11 @@ function updateVersion(version) {
 
         if (version === 'major') {
             arr[0] = parseInt(arr[0]) + 1;
+            arr[1] = '0';
+            arr[2] = '0';
         } else if (version === 'minor') {
             arr[1] = parseInt(arr[1]) + 1;
+            arr[2] = '0';
         } else if (version === 'patch') {
             arr[2] = parseInt(arr[2]) + 1;
         } else if (!version) {
@@ -30,14 +33,14 @@ function updateVersion(version) {
 
         const options = {
             files: './package.json',
-            from: /"version": \"[0-9]\.[0-9]\.[0-9]\"/,
+            from: /"version": "[0-9]{1,}\.[0-9]{1,}\.[0-9]{1,}"/,
             to: `"version": "${newSemver}"`,
           };
 
           try {
+            console.log(`Updating to ${newSemver}`);
             const results = replace.sync(options);
-            console.log(results);
-            console.log(`Updated to version ${newSemver}`);
+            console.log(results)
           }
           catch (error) {
               console.log(error);
