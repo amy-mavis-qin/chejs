@@ -1,4 +1,4 @@
-const elements=[
+module.exports = [
   {
     "symbol": "H",
     "monoisotopicMass": 1.007825032071,
@@ -2450,6 +2450,4 @@ const elements=[
       }
     ]
   }
-]
-
-exports.elements = elements;
+];

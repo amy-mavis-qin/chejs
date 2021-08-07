@@ -7,7 +7,7 @@ const opt = process.argv[2];
 function updateVersion(version) {
     fs.readFile('./package.json', 'utf-8', function(err, data) {
         if (err) {
-            console.log(error);
+            console.log(err);
         }
 
         let semver = JSON.parse(data).version;
@@ -48,36 +48,4 @@ function updateVersion(version) {
     })
 }
 
-// Update index.js with functions
-function update() {
-    const lines = []; 
-    
-    const src = fs.readdirSync('./src');
-    fs.readFileSync('./index.js', 'utf-8').split(/\r?\n/).forEach(function(line){
-        lines.push(line);
-    })
-
-    src.forEach((dir) => {
-        const files = fs.readdirSync(`./src/${dir}`);
-        files.forEach((file) => {
-            const path = `./src/${dir}/${file}`;
-            const func = file.replace('.js', '');
-
-            if (!lines.find((line) => new RegExp(path).test(line)) && (!lines.find((line) => /\n/.test(line))) ) {
-                fs.appendFileSync('./index.js', `export { default as ${func} } from "${path}";\n`);
-            } else if (!lines.find((line) => /\n/.test(line))) {
-                if (!fs.existsSync(path)) {
-                    const options = {
-                        files: './index.js',
-                        from: `export { default as ${func} } from "${path}";\n`,
-                        to: "",
-                      };
-                    replace.sync(options);
-                }
-            }
-        })
-    })
-}
-
-update();
 updateVersion(opt);
