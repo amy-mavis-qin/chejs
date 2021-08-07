@@ -1,3 +1,4 @@
+
 # ChEjs
 #### Chemical engineering scripts (made by and for chem eng students)
 ### Installation
@@ -10,23 +11,19 @@ const chejs = require('chejs');
 ```
 ## Functions
 ### Conversion
-##### tempConvert(input w/ units, output unit)
+##### tempConvert(input, inputUnit, outputUnit)
 Supported units: Celsius&#40;c), Fahrenheit(f), Kelvin(k)
 ```
-const temp = chejs.tempConvert('300k', 'c');
+const temp = chejs.tempConvert('300', 'k, 'c');
 ```
-##### unitConvert(input w/ units, output unit)
+##### unitConvert(input, inputUnit, outputUnit)
 Supported units: see [units.js](https://github.com/amy-mavis-qin/chejs/blob/master/definitions/units.js)
 ```
-const unit = chejs.tempConvert('760mmhg', 'kPa');
+const unit = chejs.tempConvert('760', 'mmhg', 'kPa');
 ```
 ### Molar Calculations
 ```
 const molarMassFromFormula = chejs.molarMass('CH3CH2OH');
-
-const moles = chejs.calculateMoles(molarMass, mass);
-const mass = chejs.calculateMass(molarMass, mole);
-const molarMass = chejs.calculateMolarMass(mole, mass);
 ```
 ### Pressure Calculations
 ##### antoineCalculations(molecule, input)
