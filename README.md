@@ -10,8 +10,12 @@ npm i chejs
 const chejs = require('chejs');
 ```
 ## Functions
+<<<<<<< HEAD
 ### Conversion
 ##### tempConvert(input, inputUnit, outputUnit)
+=======
+##### tempConvert(input w/ units, output unit)
+>>>>>>> bc95623 (Add heatCapacityFromConstants function)
 Supported units: Celsius&#40;c), Fahrenheit(f), Kelvin(k)
 ```
 const temp = chejs.tempConvert('300', 'k, 'c');
@@ -21,14 +25,22 @@ Supported units: see [units.js](https://github.com/amy-mavis-qin/chejs/blob/mast
 ```
 const unit = chejs.unitConvert('760', 'mmhg', 'kPa');
 ```
-### Molar Calculations
+##### Molar Calculations
 ```
 const molarMassFromFormula = chejs.molarMass('CH3CH2OH');
 ```
-### Pressure Calculations
 ##### antoineCalculations(molecule, input)
 Supported molecules: see [antoine_constants.js](https://github.com/amy-mavis-qin/chejs/blob/master/definitions/antoine_constants.js)
 Input can be vapor pressure or temperature. Feel free to use any of the supported units.
 ```
 const pvap = chejs.antoineCalculations('Methyl_alcohol', '760mmhg');
+```
+##### heatCapacityFromConstants(compound, state, temperature)
+
+This calculates heat capacity at constant pressure.
+
+Supported compounds, states, temperatures: see [heat_capacity_constants.js](https://github.com/amy-mavis-qin/chejs/blob/master/definitions/heat_capacity_constants.js)
+
+```
+const heatCapacity = chejs.heatCapacity('acetone', 'g', '30');
 ```

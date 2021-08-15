@@ -7,3 +7,5 @@ console.log(chejs.tempConvert(30, 'k', 'c'));
 console.log(chejs.molarMass('CH3CH2CH2OH'));
 
 console.log(chejs.antoineCalculations('Acetaldehyde', '760mmhg'));
+
+console.log(chejs.heatCapacity('acetone', 'l', 29));
