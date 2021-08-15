@@ -10,12 +10,8 @@ npm i chejs
 const chejs = require('chejs');
 ```
 ## Functions
-<<<<<<< HEAD
 ### Conversion
 ##### tempConvert(input, inputUnit, outputUnit)
-=======
-##### tempConvert(input w/ units, output unit)
->>>>>>> bc95623 (Add heatCapacityFromConstants function)
 Supported units: Celsius&#40;c), Fahrenheit(f), Kelvin(k)
 ```
 const temp = chejs.tempConvert('300', 'k, 'c');
