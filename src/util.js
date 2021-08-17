@@ -1,5 +1,4 @@
 const fs = require('fs');
-const units = require('./definitions/units.json');
 
 function variableInput(input) {
     const value = /[0-9]{1,}/.exec(input);
@@ -16,7 +15,14 @@ function readLines(path) {
     return lines;
 }
 
+function validateArrayLength(array1, array2) {
+    if (array1.length !== array2.length) {
+        throw new Error('The arrays you entered are of different lengths')
+    }
+}
+
 module.exports = {
     readLines,
-    variableInput
+    variableInput,
+    validateArrayLength
 };

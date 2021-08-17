@@ -8,4 +8,12 @@ console.log(chejs.molarMass('CH3CH2CH2OH'));
 
 console.log(chejs.antoineCalculations('Acetaldehyde', '760mmhg'));
 
-console.log(chejs.heatCapacity('acetone', 'l', 29));
+console.log(chejs.heatCapacityFromConstants('acetone', 'l', 29));
+
+console.log(chejs.idealEnthalpy([1,2,3], [4,5,6]));
+
+console.log(chejs.idealVolume([1,2,3], [4,5,6]))
+
+console.log(chejs.idealEntropy([1,2,3], [4,5,6], 2))
+
+console.log(chejs.idealGibbsEnergy([1,2,3], [4,5,6], 1, 1))
