@@ -19,7 +19,7 @@ const temp = chejs.tempConvert('300', 'k, 'c');
 ##### unitConvert(input, inputUnit, outputUnit)
 Supported units: see [units.js](https://github.com/amy-mavis-qin/chejs/blob/master/src/definitions/units.js)
 ```
-const unit = chejs.unitConvert('760', 'mmhg', 'kPa');
+const unit = chejs.unitConvert('760', 'mmhg', 'atm');
 ```
 ### Calculations
 ##### Molar Calculations
