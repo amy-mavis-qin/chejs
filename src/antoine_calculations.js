@@ -1,9 +1,11 @@
 const { variableInput, readLines } = require('./util.js')
+const path = require('path');
 
 function antoineCalculations(molecule, input) {
     let Pvap, T;
 
-    const antoineConstants = readLines('./src/definitions/antoine_constants.js');
+    const filename = path.resolve(__dirname + '/definitions/antoine_constants.js');
+    const antoineConstants = readLines(filename);
     const moleculeRegex = new RegExp(molecule);
     const currentLine = antoineConstants.find((constant) => moleculeRegex.test(constant));
     let a, b, c;
