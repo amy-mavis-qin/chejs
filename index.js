@@ -3,6 +3,7 @@ const { idealEnthalpy, idealVolume, idealEntropy, idealGibbsEnergy, idealMu } = 
 const { molarMass } = require('./src/molar_mass.js');
 const { antoineCalculations } = require('./src/antoine_calculations.js');
 const { heatCapacityFromConstants } = require('./src/heat_capacity');
+const { ENDifference, bonding } = require('./src/atomic_structure');
 
 
 module.exports = {
@@ -15,5 +16,7 @@ module.exports = {
     idealVolume,
     idealEntropy,
     idealGibbsEnergy,
-    idealMu
+    idealMu,
+    ENDifference,
+    bonding
 };
