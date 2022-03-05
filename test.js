@@ -21,3 +21,5 @@ console.log(chejs.idealGibbsEnergy([1,2,3], [4,5,6], 1, 1))
 console.log(chejs.ENDifference('N', 'H'));
 
 console.log(chejs.bonding('N', 'H'));
+
+console.log(chejs.ionicCharacter('B', 'O'));

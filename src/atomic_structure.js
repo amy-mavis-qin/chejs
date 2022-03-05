@@ -23,8 +23,13 @@ function bonding(element1, element2) {
     }
 }
 
+function ionicCharacter(element1, element2) {
+    return ((1-Math.exp(1)**((ENDifference(element1, element2)**2)/-4))*100)
+}
+
 module.exports = {
     ENDifference,
-    bonding
+    bonding,
+    ionicCharacter
 };
 
