@@ -4,7 +4,7 @@ const { molarMass } = require('./src/molar_mass.js');
 const { antoineCalculations } = require('./src/antoine_calculations.js');
 const { heatCapacityFromConstants } = require('./src/heat_capacity');
 const { ENDifference, bonding, ionicCharacter } = require('./src/atomic_structure');
-
+const { antoine_constants } = require('./src/definitions/antoine_constants.js')
 
 module.exports = {
     unitConvert,
@@ -19,5 +19,6 @@ module.exports = {
     idealMu,
     ENDifference,
     bonding,
-    ionicCharacter
+    ionicCharacter,
+    antoine_constants
 };
