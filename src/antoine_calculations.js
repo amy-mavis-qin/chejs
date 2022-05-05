@@ -1,19 +1,17 @@
 const { variableInput, readLines } = require('./util.js')
-const path = require('path');
+const { antoine_constants } = require('./definitions/antoine_constants')
 
 function antoineCalculations(molecule, input) {
     let Pvap, T;
 
-    const filename = path.resolve(__dirname + '/definitions/antoine_constants.js');
-    const antoineConstants = readLines(filename);
-    const moleculeRegex = new RegExp(molecule);
-    const currentLine = antoineConstants.find((constant) => moleculeRegex.test(constant));
+    const consts = antoine_constants.find(({name}) => name === molecule)
+
+    console.log(consts)
     let a, b, c;
-    if (currentLine) {
-        const constants = JSON.parse(currentLine.replace(/]},/, ']}'));
-        a = constants['value'][0];
-        b = constants['value'][1];
-        c = constants['value'][2];
+    if (consts) {
+        a = consts['value'][0];
+        b = consts['value'][1];
+        c = consts['value'][2];
     } else {
         console.log(`Could not find antoine\'s constants for ${molecule}. Please see antoine_constants.js for support.`);
         return;
