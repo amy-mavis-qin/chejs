@@ -1,4 +1,4 @@
-export const antoine_constants=[
+const antoine_constants=[
     {"name": "Acetaldehyde", "value":[7.05648,1070.60,236]},
     {"name": "Acetic_acid", "value":[7.29964,1479.02,216.81]},
     {"name": "Acetone", "value":[7.02447,1161,224]},
@@ -48,3 +48,7 @@ export const antoine_constants=[
     {"name": "Water", "value":[7.94917,1657.462,227.02]},
     {"name": "o_Xylene", "value":[6.99893,1474.68,213.69]}
 ];
+
+module.exports = {
+    antoine_constants
+};
