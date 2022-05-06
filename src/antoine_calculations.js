@@ -1,4 +1,5 @@
 const { variableInput, readLines } = require('./util.js')
+const { unitConvert, tempConvert } = require('./conversion')
 const { antoine_constants } = require('./definitions/antoine_constants')
 
 function antoineCalculations(molecule, input) {
@@ -12,12 +13,13 @@ function antoineCalculations(molecule, input) {
         a = consts['value'][0];
         b = consts['value'][1];
         c = consts['value'][2];
-    } else {
-        console.log(`Could not find antoine\'s constants for ${molecule}. Please see antoine_constants.js for support.`);
-        return;
     }
 
-    input = variableInput(input);
+    try {
+        input = variableInput(input);
+    } catch (e) {
+        return(e)
+    }
     const units = input[1].toLowerCase();
     if (units === 'k' || units === 'f') {
         T = tempConvert(input[0][0], units, 'c');
@@ -36,7 +38,7 @@ function antoineCalculations(molecule, input) {
         T = b /( a - Math.log10(Pvap)) - c;
         return([T, 'c']);
     } else {
-        throw new Error('Invalid input')
+        return('Invalid input')
     }
 }
 
