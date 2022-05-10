@@ -6,6 +6,9 @@ function variableInput(input) {
     if (!unit) {
         throw 'Missing units!'
     }
+    if (!value) {
+        throw 'Missing value!'
+    }
     return [value, unit];
 };
 

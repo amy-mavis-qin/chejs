@@ -5,6 +5,7 @@ const { antoineCalculations } = require('./src/antoine_calculations.js');
 const { heatCapacityFromConstants } = require('./src/heat_capacity');
 const { ENDifference, bonding, ionicCharacter } = require('./src/atomic_structure');
 const { antoine_constants } = require('./src/definitions/antoine_constants.js')
+const { heatCapacityConstants } = require('./src/definitions/heat_capacity_constants.json')
 
 module.exports = {
     unitConvert,
@@ -20,5 +21,6 @@ module.exports = {
     ENDifference,
     bonding,
     ionicCharacter,
-    antoine_constants
+    antoine_constants,
+    heatCapacityConstants
 };
