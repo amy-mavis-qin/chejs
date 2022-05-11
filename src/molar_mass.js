@@ -17,13 +17,15 @@ function molarMass(formula){
                     molarMass = molarMass + (subscript * elements[i].mass)
                 } 
             }
+            console.log("j"+j)
+            console.log('molar mass ' + molarMass)
         }
     }
     if (!foundElement) {
-        console.log('Could not recognize one or more elements.');
+        console.log('Could not recognize one or more elements. Please ensure capitalization is correct');
         return;
     }
-    return molarMass.toFixed(4);
+    return molarMass.toFixed(3);
 }
 
 module.exports = {
