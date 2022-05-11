@@ -6,6 +6,7 @@ const { heatCapacityFromConstants } = require('./src/heat_capacity');
 const { ENDifference, bonding, ionicCharacter } = require('./src/atomic_structure');
 const { antoine_constants } = require('./src/definitions/antoine_constants.js')
 const { heatCapacityConstants } = require('./src/definitions/heat_capacity_constants.json')
+const { elements } = require('./src/definitions/element_mass_properties.js');
 
 module.exports = {
     unitConvert,
@@ -22,5 +23,6 @@ module.exports = {
     bonding,
     ionicCharacter,
     antoine_constants,
-    heatCapacityConstants
+    heatCapacityConstants,
+    elements
 };
