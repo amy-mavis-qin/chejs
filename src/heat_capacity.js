@@ -1,28 +1,72 @@
-const heatCapacityConstants = require('./definitions/heat_capacity_constants.json');
+const { variableInput } = require("./util.js");
+const { tempConvert } = require("./conversion");
+const {
+    liquid_heat_capacity_constants,
+    gas_heat_capacity_constants,
+    solid_heat_capacity_constants,
+} = require("./definitions/heat_capacity_constants.js");
+const r = 8.314;
 
-function heatCapacityFromConstants(compound, state, temperature) {
-    const minTemp = heatCapacityConstants[compound][state]['minT'];
-    const maxTemp = heatCapacityConstants[compound][state]['maxT'];
+function liquidHeatCapacity(compound, temperature) {
+    const [cpd, CpStd, A, B, C] = liquid_heat_capacity_constants.find(
+        (array) => array[0] == compound
+    );
+    const [input, unit] = variableInput(temperature);
+    const T = tempConvert(input, unit, "k");
 
-    if (temperature <= minTemp || temperature >= maxTemp) {
-        throw new Error('Temperature not within range.')
+    if (T > 373.15 || T < 273.15) {
+        return "Temperature out of range (273.15k - 373.15k).";
     }
-    if (heatCapacityConstants[compound][state]) {
-        const a = heatCapacityConstants[compound][state]['a'] ? heatCapacityConstants[compound][state]['a'] * Math.pow(10, -3) : 0;
-        const b = heatCapacityConstants[compound][state]['b'] ? heatCapacityConstants[compound][state]['b'] * Math.pow(10, -5) : 0;
-        const c = heatCapacityConstants[compound][state]['c'] ? heatCapacityConstants[compound][state]['c'] * Math.pow(10, -8) : 0;
-        const d = heatCapacityConstants[compound][state]['d'] ? heatCapacityConstants[compound][state]['d'] * Math.pow(10, -12) : 0;
 
-        if (heatCapacityConstants[compound][state]['form'] === 1) {
-            return a + (b * temperature) + (c * Math.pow(temperature, 2) + (d * Math.pow(temperature, 3)));
-        } else {
-            return a + (b * temperature) + (c * Math.pow(temperature, -2));
-        }
-    } else {
-        throw new Error('Unsupported state.')
+    return (
+        r *
+        (parseFloat(A) + parseFloat(B) * 10 ** -3 * T + parseFloat(C) * 10 ** -6 * T ** 2)
+    ).toFixed(3);
+}
+
+function solidHeatCapacity(compound, temperature) {
+    const [cpd, Tmax, CpStd, A, B, D] = solid_heat_capacity_constants.find(
+        (array) => array[0] == compound
+    );
+    const [input, unit] = variableInput(temperature);
+    const T = tempConvert(input, unit, "k");
+
+    if (T > parseFloat(Tmax) || T < 298) {
+        return `Temperature out of range (298k - ${Tmax}k).`;
+    }
+
+    return (
+        r *
+        (parseFloat(A) + parseFloat(B) * 10 ** -3 * T + parseFloat(D) * 10 ** 5 * T ** -2)
+    ).toFixed(3);
+}
+
+function gasHeatCapacity(compound, temperature) {
+    const [cpd, Tmax, CpStd, A, B, C, D] = gas_heat_capacity_constants.find(
+        (array) => array[0] == compound
+    );
+    const [input, unit] = variableInput(temperature);
+    const T = tempConvert(input, unit, "k");
+
+    if (T > parseFloat(Tmax) || T < 298) {
+        return `Temperature out of range (298k - ${Tmax}k).`;
+    }
+
+    if (C) {
+        return (
+            r *
+            (parseFloat(A) + parseFloat(B) * 10 ** -3 * T + parseFloat(C) * 10 ** -6 * T ** 2)
+        ).toFixed(3);
+    } else if (D) {
+        return (
+            r *
+            (parseFloat(A) + parseFloat(B) * 10 ** -3 * T + parseFloat(D) * 10 ** 5 * T ** -2)
+        ).toFixed(3);
     }
 }
 
 module.exports = {
-    heatCapacityFromConstants
+    liquidHeatCapacity,
+    gasHeatCapacity,
+    solidHeatCapacity,
 };
