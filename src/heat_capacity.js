@@ -35,10 +35,14 @@ function solidHeatCapacity(compound, temperature) {
         return `Temperature out of range (298k - ${Tmax}k).`;
     }
 
-    return (
-        r *
-        (parseFloat(A) + parseFloat(B) * 10 ** -3 * T + parseFloat(D) * 10 ** 5 * T ** -2)
-    ).toFixed(3);
+    if (D) {
+        return (
+            r *
+            (parseFloat(A) + parseFloat(B) * 10 ** -3 * T + parseFloat(D) * 10 ** 5 * T ** -2)
+        ).toFixed(3);
+    } else {
+        return (r * (parseFloat(A) + parseFloat(B) * 10 ** -3 * T)).toFixed(3);
+    }
 }
 
 function gasHeatCapacity(compound, temperature) {
