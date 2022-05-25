@@ -1,6 +1,10 @@
 {
   "name": "chejs",
+<<<<<<< HEAD
   "version": "3.4.0",
+=======
+  "version": "3.3.3",
+>>>>>>> 75a19953d147e9102fc0e14c2497d2ce7d3fb37d
   "description": "Chemical engineering scripts",
   "main": "index.js",
   "repository": "https://github.com/amy-mavis-qin/chejs",

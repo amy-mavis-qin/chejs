@@ -3,8 +3,8 @@ const elements = require('./definitions/element_mass_properties.js');
 function molarMass(formula){
     let molarMass = 0;
     const elementArray = formula.split(/(?=[A-Z])/);
-    for (const i in elements) {
-        for (var j in elementArray) {
+    for (const j in elementArray) {
+        for (var i in elements) {
             if (elements[i].symbol == elementArray[j]) {
                 molarMass = molarMass + elements[i].mass;
             }   
