@@ -5,6 +5,7 @@ const { ENDifference, bonding, ionicCharacter } = require("./src/atomic_structur
 const { antoine_constants } = require("./src/definitions/antoine_constants.js");
 const { elements } = require("./src/definitions/element_mass_properties.js");
 const { liquidHeatCapacity, gasHeatCapacity, solidHeatCapacity } = require("./src/heat_capacity");
+const { meanHeatCapacity } = require("./src/mean_heat_capacity");
 const {
     idealEnthalpy,
     idealVolume,
@@ -39,4 +40,5 @@ module.exports = {
     liquidHeatCapacity,
     gasHeatCapacity,
     solidHeatCapacity,
+    meanHeatCapacity
 };

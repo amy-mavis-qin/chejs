@@ -23,3 +23,5 @@ console.log(chejs.bonding("N", "H"));
 console.log(chejs.ionicCharacter("B", "O"));
 
 console.log(chejs.liquidHeatCapacity("Ammonia (l)", "298k"));
+
+console.log(chejs.meanHeatCapacity("Methane", "298k", "298k"));
