@@ -1,6 +1,7 @@
 const fs = require("fs");
 
 function variableInput(input) {
+    input = input.replace(' ', '')
     const value = /[0-9]{1,}\.?[0-9]{0,}/.exec(input);
     const unit = input.replace(value, "");
     if (!unit) {
